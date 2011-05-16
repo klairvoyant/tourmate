@@ -1,0 +1,70 @@
+html { height: 100%; background-color: black; }
+body { height: 80%; margin: 0px; padding: 0px; border: 0px;color: #84a5da;}
+#map_canvas
+ {
+     height: 100%;
+ }
+#directionsPanel
+{
+width: 48%;
+color: #f58c12;
+	
+}
+#instruct h4 {
+padding-top: 5px;
+color: #f58c12;
+font-size: 18px;
+}
+
+#total {
+    font-size: 24px;
+    color: #f58c12;
+}
+#head1 {
+    text-align: center;
+    font-weight:bold;
+    
+    background-color: black;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+#head1 h1 {
+    color: #f58c12;
+
+}
+#just {
+    display:none;
+    color: #f58c12;
+    font-size: 18px;
+    padding-top: 10px;
+
+}
+#just h4 p {
+    color: red;
+    font-size: 18px;
+}
+.foot {
+    text-align: center;
+    background-color: black;
+    height: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    font-size: 15px;
+}
+.foot div a {
+    text-decoration: none;
+}
+
+
+.my-link {
+    font-size: 18px;
+    text-decoration: none;
+    
+    
+
+}
+#accordion h3{
+    font-size: 20px;
+}

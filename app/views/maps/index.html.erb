@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+    <%= javascript_include_tag 'jquery-1.6.min','rails','application','jquery-ui-1.8.12.custom.min'%>
+    <%= stylesheet_link_tag 'map','blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen' %> <![endif]-->
+    <%= stylesheet_link_tag 'ui-darkness/jquery-ui-1.8.12.custom', :media => 'screen' %>
+    <%= csrf_meta_tag %>
+    <title>Tour Mate</title>
+  </head>
+  <body class="container">
+
+
+  <div class="span-24 last"id="head1">
+    <p><h1>Tour mate </h1></p>
+  </div>
+
+
+      <div class="span-24 last"id="map_canvas" title="select starting point">  </div>
+
+      <div class="span-12">
+
+        <div class="span-12 last"id="total">    </div>
+        <div class="span-12 last"id="instruct">
+          <h4>Select starting point from the map </h4>
+        </div>
+        <div class="span-12 last">
+      <div  id="just">
+        <div id="Instruct2">Select destination from the list</div>
+  <div id="accordion" title="Select Destination">
+
+	<h3><a href="#">Historic Places</a></h3>
+	<div>
+		<%  @mapdata= Map.find(:all,:conditions=>"catagory='historic'") %>
+                <%  @mapdata.each do | c |  %>
+                <p>
+
+                  <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+
+
+
+
+                </p>
+                <%  end %>
+	</div>
+	<h3><a href="#">Dam Sites </a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='dam'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
+	<h3><a href="#">Beaches</a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='beach'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
+	<h3><a href="#">General</a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='general'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
+        <h3><a href="#">Boat Ride</a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='boat'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
+        <h3><a href="#">Temples,Churches</a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='temple'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
+        <h3><a href="#">Art,Museum</a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='art'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+      </div>
+
+  </div>
+  <div class="span-12 last" id="directionsPanel">
+
+  </div>
+
+
+  <div class="span-24 last foot">
+
+    <div class="span-12">
+      <a href="http://klairvoyant.in">By Klairvoyant Infosolutions</a>
+    </div>
+
+   <div class="span-12 last">
+
+        <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_preferred_2"></a>
+    <a class="addthis_button_preferred_3"></a>
+    <a class="addthis_button_preferred_4"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=klairvoyant"></script>
+    <!-- AddThis Button END -->
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
