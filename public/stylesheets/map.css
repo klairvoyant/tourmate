@@ -33,6 +33,18 @@ font-size: 18px;
     color: #f58c12;
 
 }
+#feed {
+    
+    background-color: black;
+    text-align: center;
+    padding-right: 10px;
+    padding-bottom: 18px;
+
+}
+#feed a {
+    text-decoration: none;
+    color: #f58c12;
+}
 #just {
     display:none;
     color: #f58c12;
@@ -55,6 +67,7 @@ font-size: 18px;
 }
 .foot div a {
     text-decoration: none;
+    color: #f58c12;
 }
 
 
