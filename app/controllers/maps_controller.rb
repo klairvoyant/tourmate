@@ -16,6 +16,7 @@ class MapsController < ApplicationController
   # GET /maps/1.xml
   def show
     @map = Map.find(params[:id])
+    @map2=Map.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -89,4 +90,6 @@ def authenticate
     username == "root" && password == "cochin"
   end
 end
+
+
 end

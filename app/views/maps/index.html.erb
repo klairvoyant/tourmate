@@ -103,6 +103,15 @@
                 </p>
                 <%  end %>
 	</div>
+        <h3><a href="#">Forest</a></h3>
+	<div>
+		<%  mapdata= Map.find(:all,:conditions=>"catagory='forest'") %>
+                <%  mapdata.each do | c |  %>
+                <p>
+                <%= link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" %>
+                </p>
+                <%  end %>
+	</div>
 </div>
 
 
