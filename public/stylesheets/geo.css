@@ -1,0 +1,13 @@
+.lis {
+    text-align: center;
+}
+body {
+    background-color: #dad4b8;
+} 
+.innerColour {
+    background-color:#edeadb;
+}
+#map_canvas {
+    width: 100%;
+    height: 400px;
+}

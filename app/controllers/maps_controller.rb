@@ -1,6 +1,8 @@
 class MapsController < ApplicationController
   layout 'application', :except => :index
   before_filter   :authenticate, :except => [:index]
+  
+ 
   # GET /maps
   # GET /maps.xml
   def index
