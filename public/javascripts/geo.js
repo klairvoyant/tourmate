@@ -1,17 +1,26 @@
-var initialLocation;
+/*var initialLocation;
 var kerala = new google.maps.LatLng(10.5293, 76.229);
 var browserSupportFlag =  new Boolean();
 
 $(function() {
-                                
-                /*var kerala = new google.maps.LatLng(10.5293, 76.229);
-                $('#map_canvas').gmap({'center': kerala,'zoom': 6});*/
-    
     var myOptions = {
-    zoom: 6,
+    zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+ 
   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  
+  function placeMarker(location) {
+        var marker = new google.maps.Marker({
+			position: location,
+                        title: "Current location"
+			
+		});
+                
+      marker.setMap(map)       
+
+}
+
   
   // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
@@ -19,6 +28,8 @@ $(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       map.setCenter(initialLocation);
+      placeMarker(initialLocation);
+      
     }, function() {
       handleNoGeolocation(browserSupportFlag);
     });
@@ -29,6 +40,7 @@ $(function() {
     geo.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
       map.setCenter(initialLocation);
+      placeMarker(initialLocation);
     }, function() {
       handleNoGeoLocation(browserSupportFlag);
     });
@@ -47,13 +59,11 @@ $(function() {
       initialLocation = kerala;
     }
     map.setCenter(initialLocation);
+    placeMarker(initialLocation);
+    
   }
-
-
-    
-    
         });
 
 
-
+*/
 

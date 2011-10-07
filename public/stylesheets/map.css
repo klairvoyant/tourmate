@@ -1,83 +1,83 @@
-html { height: 100%; background-color: black; }
-body { height: 80%; margin: 0px; padding: 0px; border: 0px;color: #84a5da;}
+html { height: 100%; background-color:#dad4b8; }
+body { height: 80%; margin: 0px; padding: 0px; border: 0px;}
+#inital_map_head {
+    height: 100px;
+    font-family: 'Tangerine', serif;
+    font-size: 48px;
+    text-align: center;
+    color: #8a1f11;
+    text-shadow: 5px 5px 5px #FF0000;
+}
+#inital_map_head_sub{
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
+    text-align: center;
+    color: #8a1f11;
+}
+.elevate {
+    border:2px solid;
+    border-radius:25px;
+    -moz-border-radius:25px; /* Firefox 3.6 and earlier */
+    border-color: #dad4b8;
+    box-shadow: 0 0 10px 5px #888888;
+    -webkit-box-shadow: 0 0 10px 5px #888888; /* Safari */
+}
 #map_canvas
  {
-     height: 100%;
+    height: 80%;
  }
-#directionsPanel
-{
-width: 48%;
-color: #f58c12;
-	
-}
-#instruct h4 {
-padding-top: 5px;
-color: #f58c12;
-font-size: 18px;
-}
-
-#total {
-    font-size: 24px;
+#for_hide {
+    display: none;
     color: #f58c12;
+    font-size: 18px;
+    padding: 1%;
 }
-#head1 {
-    text-align: center;
-    font-weight:bold;
-    
-    background-color: black;
-    padding: 0px;
-    border: 0px;
-    margin: 0px;
-}
-#head1 h1 {
-    color: #f58c12;
-
-}
-#feed {
-    
-    background-color: black;
-    text-align: center;
-    padding-right: 10px;
-    padding-bottom: 18px;
-
-}
-#feed a {
+.my-link {
+    font-family: 'Tangerine', serif;
+    font-size: 40px;
     text-decoration: none;
-    color: #f58c12;
 }
-#just {
-    display:none;
-    color: #f58c12;
-    font-size: 18px;
-    padding-top: 10px;
-
+#accordion h3{
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
 }
-#just h4 p {
-    color: red;
-    font-size: 18px;
+#directionsPanel{
+    padding-left:10%; 
+    color: #8a1f11;
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
 }
 .foot {
+    font-family: 'Tangerine', serif;
+    height: 10%;
+    font-size: 200%;
     text-align: center;
-    background-color: black;
-    height: 30px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-
-    font-size: 15px;
 }
 .foot div a {
     text-decoration: none;
-    color: #f58c12;
+    color: #8a1f11;
 }
-
-
-.my-link {
-    font-size: 16px;
+#feed {
+   text-align: left;
+}
+#feed a {
     text-decoration: none;
-    
-    
-
+    color: #8a1f11;
 }
-#accordion h3{
-    font-size: 18px;
+#rightColumn {
+    display: none;
+    margin-left: 5%;
+    padding: 1%;
+}
+.addColour {
+    background-color: #f7f6f4;
+}
+#bottomStrip {
+    padding: 1%;
+}
+#shareButtons {
+    padding-left: 6%;
+}
+#klairvoyant {
+    text-align: right;
 }

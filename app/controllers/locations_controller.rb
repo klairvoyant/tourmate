@@ -3,9 +3,10 @@ class LocationsController < ApplicationController
   # GET /locations.xml
   def index
     if params[:search].present?
-      @locations=Location.near([:search], 50, :order=> :distance)
+      @locations=Location.near([:search], 100, :order=> :distance)
     else
       @locations = Location.all
+      
     end
     
     respond_to do |format|
