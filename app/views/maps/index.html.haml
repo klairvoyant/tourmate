@@ -1,0 +1,85 @@
+!!! 5
+%html
+ %head
+  %title Tour Mate
+  =javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=false','jquery-1.6.min','jquery.bt.min','rails','application','jquery-ui-1.8.12.custom.min'
+  =stylesheet_link_tag 'map','blueprint/liquid','jquery.bt','http://fonts.googleapis.com/css?family=Tangerine', :media => 'screen'
+  =stylesheet_link_tag 'blueprint/print', :media => 'print'
+  /[if lt IE 8] <haml:loud> stylesheet_link_tag 'blueprint/ie', :media ='screen' </haml:loud>
+  =stylesheet_link_tag 'ui-darkness/jquery-ui-1.8.12.custom', :media => 'screen'
+  =csrf_meta_tag
+ %body.container	
+  #inital_map_head.span-24.last
+   Tour Mate
+   #inital_map_head_sub Help you to find your tour destinations
+  .column.span-2 &nbsp;
+  .span-20.elevate#map_canvas{:title =>"select starting point from the map"}
+  .column.span-2.last
+  .column.span-2 &nbsp;
+  #for_hide.column.span-10.elevate.addColour
+   #accordion{:title=> "Select destination"}
+    %h3
+     %a{:href=>"#"}Historic Places
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='historic'") 
+     -@mapdata.each do |c|
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}" 
+    %h3
+     %a{:href=>"#"}Beaches
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='beach'")
+     -@mapdata.each do |c| 
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"
+    %h3
+     %a{:href=>"#"}General
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='general'")
+     -@mapdata.each do |c| 
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"
+    %h3
+     %a{:href=>"#"}Boat Ride
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='boat'") 
+     -@mapdata.each do |c|
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"
+    %h3
+     %a{:href=>"#"} Temples,Churches
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='temple'")
+     -@mapdata.each do |c| 
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"
+    %h3
+     %a{:href=>"#"}Art,Museum
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='art'")
+     -@mapdata.each do |c| 
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"
+    %h3
+     %a{:href=>"#"}Forest
+    %div
+     -@mapdata= Map.find(:all,:conditions=>"catagory='forest'")
+     -@mapdata.each do |c| 
+      %p=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"
+  #rightColumn.column.span-8.elevate.addColour
+   #directionsPanel
+  .span-2.last &nbsp;
+  .column.span-2 &nbsp;
+  #bottomStrip.column.span-20.foot.elevate.addColour
+   .column.span-4#feed
+    %a{:href=> "http://www.facebook.com/apps/application.php?id=210932928927426&sk=wall",:target=> "_blank"}Feed back
+   #shareButtons.column.span-10
+    /AddThis Button BEGIN
+    %div.addthis_toolbox.addthis_default_style.addthis_32x32_style
+     %a.addthis_button_preferred_1
+     %a.addthis_button_preferred_2
+     %a.addthis_button_preferred_3
+     %a.addthis_button_preferred_4
+     %a.addthis_button_compact
+     %a.addthis_counter.addthis_bubble_style
+    :javascript
+     var addthis_config = {"data_track_clickback":true};
+    %script{:src => "http://s7.addthis.com/js/250/addthis_widget.js#pubid=klairvoyant", :type => "text/javascript"}
+    /AddThis Button END
+   #klairvoyant.column.span-6.last
+    %a{:href=> "http://klairvoyant.in" }By Klairvoyant Infosolutions
+  .column.span-2.last &nbsp;

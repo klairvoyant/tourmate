@@ -10,6 +10,7 @@ body {
 #map_canvas {
     width: 100px;
     height: 200px;
+    padding-bottom:10%; 
 }
 #inital_map_head {
     height: 100px;
