@@ -1,0 +1,1503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>/home/john/.rvm/gems/ruby-1.9.2-p290/gems/mysql2-0.2.7/lib/mysql2/client.rb</title>
+    <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="print.css" media="print" rel="stylesheet" type="text/css" />
+    
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="rcov.js"></script>
+  </head>
+  <body>
+    <h1>Tourmate C0 Coverage Information - RCov</h1>
+    <h2>/home/john/.rvm/gems/ruby-1.9.2-p290/gems/mysql2-0.2.7/lib/mysql2/client.rb</h2>
+
+    
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="-home-john-_rvm-gems-ruby-1_9_2-p290-gems-mysql2-0_2_7-lib-mysql2-client_rb.html">/home/john/.rvm/gems/ruby-1.9.2-p290/gems/mysql2-0.2.7/lib/mysql2/client.rb</a></td>
+            <td class='right_align'><tt>240</tt></td>
+            <td class='right_align'><tt>225</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>90.42%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:90px"></div>
+            <div class="uncovered" style="width:10px"></div>
+          </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>92.89%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:93px"></div>
+            <div class="uncovered" style="width:7px"></div>
+          </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Key</h3>
+    
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line1">1</a> module Mysql2</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line2">2</a>   class Client</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line3">3</a>     attr_reader :query_options</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line4">4</a>     @@default_query_options = {</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line5">5</a>       :as =&gt; :hash,                   # the type of object you want each row back as; also supports :array (an array of values)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line6">6</a>       :async =&gt; false,                # don't wait for a result after sending the query, you'll have to monitor the socket yourself then eventually call Mysql2::Client#async_result</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line7">7</a>       :cast_booleans =&gt; false,        # cast tinyint(1) fields as true/false in ruby</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line8">8</a>       :symbolize_keys =&gt; false,       # return field names as symbols instead of strings</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line9">9</a>       :database_timezone =&gt; :local,   # timezone Mysql2 will assume datetime objects are stored in</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line10">10</a>       :application_timezone =&gt; nil,   # timezone Mysql2 will convert to before handing the object back to the caller</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line11">11</a>       :cache_rows =&gt; true,            # tells Mysql2 to use it's internal row cache for results</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line12">12</a>       :connect_flags =&gt; REMEMBER_OPTIONS | LONG_PASSWORD | LONG_FLAG | TRANSACTIONS | PROTOCOL_41 | SECURE_CONNECTION</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line13">13</a>     }</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line14">14</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line15">15</a>     def initialize(opts = {})</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line16">16</a>       @query_options = @@default_query_options.dup</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line17">17</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line18">18</a>       init_connection</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line19">19</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line20">20</a>       [:reconnect, :connect_timeout].each do |key|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line21">21</a>         next unless opts.key?(key)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line22">22</a>         send(:&quot;#{key}=&quot;, opts[key])</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line23">23</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line24">24</a>       # force the encoding to utf8</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line25">25</a>       self.charset_name = opts[:encoding] || 'utf8'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line26">26</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line27">27</a>       @read_timeout = opts[:read_timeout]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line28">28</a>       if @read_timeout and @read_timeout &lt; 0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line29">29</a>         raise Mysql2::Error, &quot;read_timeout must be a positive integer, you passed #{@read_timeout}&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line30">30</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line31">31</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line32">32</a>       ssl_set(*opts.values_at(:sslkey, :sslcert, :sslca, :sslcapath, :sslciper))</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line33">33</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line34">34</a>       user     = opts[:username]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line35">35</a>       pass     = opts[:password]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line36">36</a>       host     = opts[:host] || 'localhost'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line37">37</a>       port     = opts[:port] || 3306</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line38">38</a>       database = opts[:database]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line39">39</a>       socket   = opts[:socket]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line40">40</a>       flags    = opts[:flags] ? opts[:flags] | @query_options[:connect_flags] : @query_options[:connect_flags]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line41">41</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line42">42</a>       connect user, pass, host, port, database, socket, flags</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line43">43</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line44">44</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line45">45</a>     def self.default_query_options</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line46">46</a>       @@default_query_options</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line47">47</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line48">48</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line49">49</a>     # NOTE: from ruby-mysql</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line50">50</a>     if defined? Encoding</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line51">51</a>       CHARSET_MAP = {</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line52">52</a>         &quot;armscii8&quot; =&gt; nil,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line53">53</a>         &quot;ascii&quot;    =&gt; Encoding::US_ASCII,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line54">54</a>         &quot;big5&quot;     =&gt; Encoding::Big5,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line55">55</a>         &quot;binary&quot;   =&gt; Encoding::ASCII_8BIT,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line56">56</a>         &quot;cp1250&quot;   =&gt; Encoding::Windows_1250,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line57">57</a>         &quot;cp1251&quot;   =&gt; Encoding::Windows_1251,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line58">58</a>         &quot;cp1256&quot;   =&gt; Encoding::Windows_1256,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line59">59</a>         &quot;cp1257&quot;   =&gt; Encoding::Windows_1257,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line60">60</a>         &quot;cp850&quot;    =&gt; Encoding::CP850,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line61">61</a>         &quot;cp852&quot;    =&gt; Encoding::CP852,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line62">62</a>         &quot;cp866&quot;    =&gt; Encoding::IBM866,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line63">63</a>         &quot;cp932&quot;    =&gt; Encoding::Windows_31J,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line64">64</a>         &quot;dec8&quot;     =&gt; nil,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line65">65</a>         &quot;eucjpms&quot;  =&gt; Encoding::EucJP_ms,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line66">66</a>         &quot;euckr&quot;    =&gt; Encoding::EUC_KR,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line67">67</a>         &quot;gb2312&quot;   =&gt; Encoding::EUC_CN,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line68">68</a>         &quot;gbk&quot;      =&gt; Encoding::GBK,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line69">69</a>         &quot;geostd8&quot;  =&gt; nil,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line70">70</a>         &quot;greek&quot;    =&gt; Encoding::ISO_8859_7,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line71">71</a>         &quot;hebrew&quot;   =&gt; Encoding::ISO_8859_8,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line72">72</a>         &quot;hp8&quot;      =&gt; nil,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line73">73</a>         &quot;keybcs2&quot;  =&gt; nil,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line74">74</a>         &quot;koi8r&quot;    =&gt; Encoding::KOI8_R,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line75">75</a>         &quot;koi8u&quot;    =&gt; Encoding::KOI8_U,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line76">76</a>         &quot;latin1&quot;   =&gt; Encoding::ISO_8859_1,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line77">77</a>         &quot;latin2&quot;   =&gt; Encoding::ISO_8859_2,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line78">78</a>         &quot;latin5&quot;   =&gt; Encoding::ISO_8859_9,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line79">79</a>         &quot;latin7&quot;   =&gt; Encoding::ISO_8859_13,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line80">80</a>         &quot;macce&quot;    =&gt; Encoding::MacCentEuro,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line81">81</a>         &quot;macroman&quot; =&gt; Encoding::MacRoman,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line82">82</a>         &quot;sjis&quot;     =&gt; Encoding::SHIFT_JIS,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line83">83</a>         &quot;swe7&quot;     =&gt; nil,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line84">84</a>         &quot;tis620&quot;   =&gt; Encoding::TIS_620,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line85">85</a>         &quot;ucs2&quot;     =&gt; Encoding::UTF_16BE,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line86">86</a>         &quot;ujis&quot;     =&gt; Encoding::EucJP_ms,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line87">87</a>         &quot;utf8&quot;     =&gt; Encoding::UTF_8,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line88">88</a>       }</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line89">89</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line90">90</a>       MYSQL_CHARSET_MAP = {</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line91">91</a>         1 =&gt; {:name =&gt; &quot;big5&quot;,      :collation =&gt; &quot;big5_chinese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line92">92</a>         2 =&gt; {:name =&gt; &quot;latin2&quot;,    :collation =&gt; &quot;latin2_czech_cs&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line93">93</a>         3 =&gt; {:name =&gt; &quot;dec8&quot;,      :collation =&gt; &quot;dec8_swedish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line94">94</a>         4 =&gt; {:name =&gt; &quot;cp850&quot;,     :collation =&gt; &quot;cp850_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line95">95</a>         5 =&gt; {:name =&gt; &quot;latin1&quot;,    :collation =&gt; &quot;latin1_german1_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line96">96</a>         6 =&gt; {:name =&gt; &quot;hp8&quot;,       :collation =&gt; &quot;hp8_english_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line97">97</a>         7 =&gt; {:name =&gt; &quot;koi8r&quot;,     :collation =&gt; &quot;koi8r_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line98">98</a>         8 =&gt; {:name =&gt; &quot;latin1&quot;,    :collation =&gt; &quot;latin1_swedish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line99">99</a>         9 =&gt; {:name =&gt; &quot;latin2&quot;,    :collation =&gt; &quot;latin2_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line100">100</a>         10 =&gt; {:name =&gt; &quot;swe7&quot;,     :collation =&gt; &quot;swe7_swedish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line101">101</a>         11 =&gt; {:name =&gt; &quot;ascii&quot;,    :collation =&gt; &quot;ascii_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line102">102</a>         12 =&gt; {:name =&gt; &quot;ujis&quot;,     :collation =&gt; &quot;ujis_japanese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line103">103</a>         13 =&gt; {:name =&gt; &quot;sjis&quot;,     :collation =&gt; &quot;sjis_japanese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line104">104</a>         14 =&gt; {:name =&gt; &quot;cp1251&quot;,   :collation =&gt; &quot;cp1251_bulgarian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line105">105</a>         15 =&gt; {:name =&gt; &quot;latin1&quot;,   :collation =&gt; &quot;latin1_danish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line106">106</a>         16 =&gt; {:name =&gt; &quot;hebrew&quot;,   :collation =&gt; &quot;hebrew_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line107">107</a>         17 =&gt; {:name =&gt; &quot;filename&quot;, :collation =&gt; &quot;filename&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line108">108</a>         18 =&gt; {:name =&gt; &quot;tis620&quot;,   :collation =&gt; &quot;tis620_thai_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line109">109</a>         19 =&gt; {:name =&gt; &quot;euckr&quot;,    :collation =&gt; &quot;euckr_korean_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line110">110</a>         20 =&gt; {:name =&gt; &quot;latin7&quot;,   :collation =&gt; &quot;latin7_estonian_cs&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line111">111</a>         21 =&gt; {:name =&gt; &quot;latin2&quot;,   :collation =&gt; &quot;latin2_hungarian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line112">112</a>         22 =&gt; {:name =&gt; &quot;koi8u&quot;,    :collation =&gt; &quot;koi8u_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line113">113</a>         23 =&gt; {:name =&gt; &quot;cp1251&quot;,   :collation =&gt; &quot;cp1251_ukrainian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line114">114</a>         24 =&gt; {:name =&gt; &quot;gb2312&quot;,   :collation =&gt; &quot;gb2312_chinese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line115">115</a>         25 =&gt; {:name =&gt; &quot;greek&quot;,    :collation =&gt; &quot;greek_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line116">116</a>         26 =&gt; {:name =&gt; &quot;cp1250&quot;,   :collation =&gt; &quot;cp1250_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line117">117</a>         27 =&gt; {:name =&gt; &quot;latin2&quot;,   :collation =&gt; &quot;latin2_croatian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line118">118</a>         28 =&gt; {:name =&gt; &quot;gbk&quot;,      :collation =&gt; &quot;gbk_chinese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line119">119</a>         29 =&gt; {:name =&gt; &quot;cp1257&quot;,   :collation =&gt; &quot;cp1257_lithuanian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line120">120</a>         30 =&gt; {:name =&gt; &quot;latin5&quot;,   :collation =&gt; &quot;latin5_turkish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line121">121</a>         31 =&gt; {:name =&gt; &quot;latin1&quot;,   :collation =&gt; &quot;latin1_german2_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line122">122</a>         32 =&gt; {:name =&gt; &quot;armscii8&quot;, :collation =&gt; &quot;armscii8_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line123">123</a>         33 =&gt; {:name =&gt; &quot;utf8&quot;,     :collation =&gt; &quot;utf8_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line124">124</a>         34 =&gt; {:name =&gt; &quot;cp1250&quot;,   :collation =&gt; &quot;cp1250_czech_cs&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line125">125</a>         35 =&gt; {:name =&gt; &quot;ucs2&quot;,     :collation =&gt; &quot;ucs2_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line126">126</a>         36 =&gt; {:name =&gt; &quot;cp866&quot;,    :collation =&gt; &quot;cp866_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line127">127</a>         37 =&gt; {:name =&gt; &quot;keybcs2&quot;,  :collation =&gt; &quot;keybcs2_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line128">128</a>         38 =&gt; {:name =&gt; &quot;macce&quot;,    :collation =&gt; &quot;macce_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line129">129</a>         39 =&gt; {:name =&gt; &quot;macroman&quot;, :collation =&gt; &quot;macroman_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line130">130</a>         40 =&gt; {:name =&gt; &quot;cp852&quot;,    :collation =&gt; &quot;cp852_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line131">131</a>         41 =&gt; {:name =&gt; &quot;latin7&quot;,   :collation =&gt; &quot;latin7_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line132">132</a>         42 =&gt; {:name =&gt; &quot;latin7&quot;,   :collation =&gt; &quot;latin7_general_cs&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line133">133</a>         43 =&gt; {:name =&gt; &quot;macce&quot;,    :collation =&gt; &quot;macce_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line134">134</a>         44 =&gt; {:name =&gt; &quot;cp1250&quot;,   :collation =&gt; &quot;cp1250_croatian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line135">135</a>         47 =&gt; {:name =&gt; &quot;latin1&quot;,   :collation =&gt; &quot;latin1_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line136">136</a>         48 =&gt; {:name =&gt; &quot;latin1&quot;,   :collation =&gt; &quot;latin1_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line137">137</a>         49 =&gt; {:name =&gt; &quot;latin1&quot;,   :collation =&gt; &quot;latin1_general_cs&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line138">138</a>         50 =&gt; {:name =&gt; &quot;cp1251&quot;,   :collation =&gt; &quot;cp1251_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line139">139</a>         51 =&gt; {:name =&gt; &quot;cp1251&quot;,   :collation =&gt; &quot;cp1251_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line140">140</a>         52 =&gt; {:name =&gt; &quot;cp1251&quot;,   :collation =&gt; &quot;cp1251_general_cs&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line141">141</a>         53 =&gt; {:name =&gt; &quot;macroman&quot;, :collation =&gt; &quot;macroman_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line142">142</a>         57 =&gt; {:name =&gt; &quot;cp1256&quot;,   :collation =&gt; &quot;cp1256_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line143">143</a>         58 =&gt; {:name =&gt; &quot;cp1257&quot;,   :collation =&gt; &quot;cp1257_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line144">144</a>         59 =&gt; {:name =&gt; &quot;cp1257&quot;,   :collation =&gt; &quot;cp1257_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line145">145</a>         63 =&gt; {:name =&gt; &quot;binary&quot;,   :collation =&gt; &quot;binary&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line146">146</a>         64 =&gt; {:name =&gt; &quot;armscii8&quot;, :collation =&gt; &quot;armscii8_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line147">147</a>         65 =&gt; {:name =&gt; &quot;ascii&quot;,    :collation =&gt; &quot;ascii_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line148">148</a>         66 =&gt; {:name =&gt; &quot;cp1250&quot;,   :collation =&gt; &quot;cp1250_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line149">149</a>         67 =&gt; {:name =&gt; &quot;cp1256&quot;,   :collation =&gt; &quot;cp1256_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line150">150</a>         68 =&gt; {:name =&gt; &quot;cp866&quot;,    :collation =&gt; &quot;cp866_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line151">151</a>         69 =&gt; {:name =&gt; &quot;dec8&quot;,     :collation =&gt; &quot;dec8_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line152">152</a>         70 =&gt; {:name =&gt; &quot;greek&quot;,    :collation =&gt; &quot;greek_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line153">153</a>         71 =&gt; {:name =&gt; &quot;hebrew&quot;,   :collation =&gt; &quot;hebrew_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line154">154</a>         72 =&gt; {:name =&gt; &quot;hp8&quot;,      :collation =&gt; &quot;hp8_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line155">155</a>         73 =&gt; {:name =&gt; &quot;keybcs2&quot;,  :collation =&gt; &quot;keybcs2_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line156">156</a>         74 =&gt; {:name =&gt; &quot;koi8r&quot;,    :collation =&gt; &quot;koi8r_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line157">157</a>         75 =&gt; {:name =&gt; &quot;koi8u&quot;,    :collation =&gt; &quot;koi8u_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line158">158</a>         77 =&gt; {:name =&gt; &quot;latin2&quot;,   :collation =&gt; &quot;latin2_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line159">159</a>         78 =&gt; {:name =&gt; &quot;latin5&quot;,   :collation =&gt; &quot;latin5_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line160">160</a>         79 =&gt; {:name =&gt; &quot;latin7&quot;,   :collation =&gt; &quot;latin7_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line161">161</a>         80 =&gt; {:name =&gt; &quot;cp850&quot;,    :collation =&gt; &quot;cp850_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line162">162</a>         81 =&gt; {:name =&gt; &quot;cp852&quot;,    :collation =&gt; &quot;cp852_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line163">163</a>         82 =&gt; {:name =&gt; &quot;swe7&quot;,     :collation =&gt; &quot;swe7_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line164">164</a>         83 =&gt; {:name =&gt; &quot;utf8&quot;,     :collation =&gt; &quot;utf8_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line165">165</a>         84 =&gt; {:name =&gt; &quot;big5&quot;,     :collation =&gt; &quot;big5_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line166">166</a>         85 =&gt; {:name =&gt; &quot;euckr&quot;,    :collation =&gt; &quot;euckr_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line167">167</a>         86 =&gt; {:name =&gt; &quot;gb2312&quot;,   :collation =&gt; &quot;gb2312_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line168">168</a>         87 =&gt; {:name =&gt; &quot;gbk&quot;,      :collation =&gt; &quot;gbk_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line169">169</a>         88 =&gt; {:name =&gt; &quot;sjis&quot;,     :collation =&gt; &quot;sjis_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line170">170</a>         89 =&gt; {:name =&gt; &quot;tis620&quot;,   :collation =&gt; &quot;tis620_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line171">171</a>         90 =&gt; {:name =&gt; &quot;ucs2&quot;,     :collation =&gt; &quot;ucs2_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line172">172</a>         91 =&gt; {:name =&gt; &quot;ujis&quot;,     :collation =&gt; &quot;ujis_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line173">173</a>         92 =&gt; {:name =&gt; &quot;geostd8&quot;,  :collation =&gt; &quot;geostd8_general_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line174">174</a>         93 =&gt; {:name =&gt; &quot;geostd8&quot;,  :collation =&gt; &quot;geostd8_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line175">175</a>         94 =&gt; {:name =&gt; &quot;latin1&quot;,   :collation =&gt; &quot;latin1_spanish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line176">176</a>         95 =&gt; {:name =&gt; &quot;cp932&quot;,    :collation =&gt; &quot;cp932_japanese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line177">177</a>         96 =&gt; {:name =&gt; &quot;cp932&quot;,    :collation =&gt; &quot;cp932_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line178">178</a>         97 =&gt; {:name =&gt; &quot;eucjpms&quot;,  :collation =&gt; &quot;eucjpms_japanese_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line179">179</a>         98 =&gt; {:name =&gt; &quot;eucjpms&quot;,  :collation =&gt; &quot;eucjpms_bin&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line180">180</a>         99 =&gt; {:name =&gt; &quot;cp1250&quot;,   :collation =&gt; &quot;cp1250_polish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line181">181</a>         128 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_unicode_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line182">182</a>         129 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_icelandic_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line183">183</a>         130 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_latvian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line184">184</a>         131 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_romanian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line185">185</a>         132 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_slovenian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line186">186</a>         133 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_polish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line187">187</a>         134 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_estonian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line188">188</a>         135 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_spanish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line189">189</a>         136 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_swedish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line190">190</a>         137 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_turkish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line191">191</a>         138 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_czech_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line192">192</a>         139 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_danish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line193">193</a>         140 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_lithuanian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line194">194</a>         141 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_slovak_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line195">195</a>         142 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_spanish2_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line196">196</a>         143 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_roman_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line197">197</a>         144 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_persian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line198">198</a>         145 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_esperanto_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line199">199</a>         146 =&gt; {:name =&gt; &quot;ucs2&quot;,    :collation =&gt; &quot;ucs2_hungarian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line200">200</a>         192 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_unicode_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line201">201</a>         193 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_icelandic_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line202">202</a>         194 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_latvian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line203">203</a>         195 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_romanian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line204">204</a>         196 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_slovenian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line205">205</a>         197 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_polish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line206">206</a>         198 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_estonian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line207">207</a>         199 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_spanish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line208">208</a>         200 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_swedish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line209">209</a>         201 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_turkish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line210">210</a>         202 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_czech_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line211">211</a>         203 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_danish_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line212">212</a>         204 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_lithuanian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line213">213</a>         205 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_slovak_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line214">214</a>         206 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_spanish2_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line215">215</a>         207 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_roman_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line216">216</a>         208 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_persian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line217">217</a>         209 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_esperanto_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line218">218</a>         210 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_hungarian_ci&quot;},</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line219">219</a>         254 =&gt; {:name =&gt; &quot;utf8&quot;,    :collation =&gt; &quot;utf8_general_cs&quot;}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line220">220</a>       }</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line221">221</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line222">222</a>       def self.encoding_from_charset(charset)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line223">223</a>         CHARSET_MAP[charset.to_s.downcase]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line224">224</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line225">225</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line226">226</a>       def self.encoding_from_charset_code(code)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line227">227</a>         if mapping = MYSQL_CHARSET_MAP[code]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line228">228</a>           encoding_from_charset(mapping[:name])</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line229">229</a>         else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line230">230</a>           nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line231">231</a>         end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line232">232</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line233">233</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line234">234</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line235">235</a>     private</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line236">236</a>       def self.local_offset</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line237">237</a>         ::Time.local(2010).utc_offset.to_r / 86400</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line238">238</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line239">239</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line240">240</a> end</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+
+    <p>Generated on 2011-10-27 12:30:31 +0530 with <a href="http://github.com/relevance/rcov">rcov 0.9.11</a></p>
+
+  </body>
+</html>

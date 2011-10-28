@@ -1,0 +1,17 @@
+!!! 5
+%html
+ %head
+  %title Tour Mate
+  =stylesheet_link_tag 'blueprint/liquid','map','http://fonts.googleapis.com/css?family=Tangerine', :media => 'screen'
+  =stylesheet_link_tag 'blueprint/print', :media => 'print'
+  /[if lt IE 8] <haml:loud> stylesheet_link_tag 'blueprint/ie', :media ='screen' </haml:loud>
+  =csrf_meta_tag
+ %body.container	
+  #inital_map_head.span-24.last
+   Tour Mate
+   #inital_map_head_sub Help you to find your tour destinations
+  .column.span-2 &nbsp;
+  .column.span-20.errorPage 
+   %h1 We're sorry, but something went wrong.
+   %h2 We will get notified about this issue by mail and we'll take a look at it shortly.
+  .column.span-2.last

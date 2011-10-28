@@ -7,7 +7,10 @@ gem 'rails', '3.0.7'
 
 gem 'mysql2', '< 0.3'
 gem 'geocoder'
-gem 'haml'
+gem 'haml-rails', '~> 0.3.4'
+gem 'sass'
+gem 'ruby-prof'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

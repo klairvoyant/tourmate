@@ -4,7 +4,7 @@
  * note: canvas (the tip itself) cannot be styled here. use javascript options for that.
  */
 .bt-content {
-  font-size: small;
+  font-size: x-large;
   color: #000;
   line-height: normal;
 }

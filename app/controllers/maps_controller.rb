@@ -1,13 +1,10 @@
 class MapsController < ApplicationController
   layout 'application', :except => :index
   before_filter   :authenticate, :except => [:index]
-  
- 
   # GET /maps
   # GET /maps.xml
   def index
     @maps = Map.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @maps }
@@ -92,6 +89,5 @@ def authenticate
     username == "root" && password == "cochin"
   end
 end
-
 
 end

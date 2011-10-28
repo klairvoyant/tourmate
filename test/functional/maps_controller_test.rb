@@ -3,49 +3,28 @@ require 'test_helper'
 class MapsControllerTest < ActionController::TestCase
   fixtures :maps
   setup do
-    @map = maps(:one)
+   # @map = maps(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:maps)
-  end
-=begin
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create map" do
-    assert_difference('Map.count') do
-      post :create, :map => @map.attributes
+    assert_template "index"
+    assert_select "div#inital_map_head"
+    assert_select "div#for_hide"
+    assert_select "div#rightColumn"
+    assert_select "div#for_hide" do
+      assert_select "div#accordion" do
+        assert_select "h3" do
+          assert_select "a"
+        end
+        assert_select "div"
+      end
     end
-
-    assert_redirected_to map_path(assigns(:map))
+    assert_select("#for_hide #accordion h3 + div",:count=>7)
+    maps=assigns(:maps)
+    assert_equal 2, maps.size
   end
 
-  test "should show map" do
-    get :show, :id => @map.to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => @map.to_param
-    assert_response :success
-  end
-
-  test "should update map" do
-    put :update, :id => @map.to_param, :map => @map.attributes
-    assert_redirected_to map_path(assigns(:map))
-  end
-
-  test "should destroy map" do
-    assert_difference('Map.count', -1) do
-      delete :destroy, :id => @map.to_param
-    end
-
-    assert_redirected_to maps_path
-  end
-=end
 end
