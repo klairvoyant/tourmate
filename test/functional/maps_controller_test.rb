@@ -26,5 +26,14 @@ class MapsControllerTest < ActionController::TestCase
     maps=assigns(:maps)
     assert_equal 2, maps.size
   end
+  
+  test "should get new" do
+   @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("root:cochin")
+   get :new
+   assert_response :success
+   assert_template "new"
+   
+    
+  end
 
 end

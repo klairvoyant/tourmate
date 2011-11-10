@@ -1,0 +1,26 @@
+= simple_form_for(@map) do |f|
+  - if @map.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@map.errors.count, "error")
+        prohibited this from being saved:
+      %ul
+        - @map.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.input :name
+    %br/
+  .field
+    = f.input :catagory
+    %br/
+  .field
+    = f.input :lng, :label => 'Latitude'
+    %br/
+  .field
+    = f.input :lat,:label=> 'Longitude'
+    %br/
+  .field
+    = f.input :desc,:label=>'Description'
+    %br/
+  .actions
+    = f.button :submit

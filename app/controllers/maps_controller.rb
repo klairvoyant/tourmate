@@ -1,9 +1,13 @@
+require 'digest'
 class MapsController < ApplicationController
   layout 'application', :except => :index
   before_filter   :authenticate, :except => [:index]
   # GET /maps
   # GET /maps.xml
+  
   def index
+  # == show the source and destinations
+  #OPTIMIZE
     @maps = Map.all
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +18,7 @@ class MapsController < ApplicationController
   # GET /maps/1
   # GET /maps/1.xml
   def show
+    #TODO
     @map = Map.find(params[:id])
     @map2=Map.all
 
@@ -26,6 +31,7 @@ class MapsController < ApplicationController
   # GET /maps/new
   # GET /maps/new.xml
   def new
+    #TODO
     @map = Map.new
 
     respond_to do |format|
@@ -36,12 +42,14 @@ class MapsController < ApplicationController
 
   # GET /maps/1/edit
   def edit
+    #TODO cool2
     @map = Map.find(params[:id])
   end
 
   # POST /maps
   # POST /maps.xml
   def create
+    #FIXME check
     @map = Map.new(params[:map])
 
     respond_to do |format|
@@ -58,6 +66,7 @@ class MapsController < ApplicationController
   # PUT /maps/1
   # PUT /maps/1.xml
   def update
+    #TODO cool2
     @map = Map.find(params[:id])
 
     respond_to do |format|
@@ -84,10 +93,20 @@ class MapsController < ApplicationController
   end
   protected
 
-def authenticate
-  authenticate_or_request_with_http_basic do |username, password|
-    username == "root" && password == "cochin"
-  end
-end
+#def authenticate
+#  authenticate_or_request_with_http_basic do |username, password|
+#    username == "root" && password == "cochin"
+#  end
+#end
+
+
+
+
+ def authenticate
+   authenticate_or_request_with_http_basic('Administration') do |username, password|
+     md5_of_password = Digest::MD5.hexdigest(password)
+     username == 'root' && md5_of_password == 'bfc286df450f68ed12bf0cbe93640f23'
+   end
+ end
 
 end

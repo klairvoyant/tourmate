@@ -10,6 +10,7 @@ gem 'geocoder'
 gem 'haml-rails', '~> 0.3.4'
 gem 'sass'
 gem 'ruby-prof'
+gem 'simple_form' 
 
 
 # Use unicorn as the web server
