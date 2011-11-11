@@ -32,8 +32,6 @@ class MapsControllerTest < ActionController::TestCase
    get :new
    assert_response :success
    assert_template "new"
-   
-    
   end
 
 end

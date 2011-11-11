@@ -133,7 +133,9 @@ body {
   line-height: normal; }  
  .makeBig {
  font-size: 200%;
-} 
+ text-align: center;
+background-color: #a5bfdd;
+ } 
 .simple_form {
   label {
     float: left;
@@ -151,3 +153,14 @@ body {
   div.boolean label {
     float: none;
     margin: 0; } }
+.special {
+    font-family: 'serif';
+    height: 30px;
+    }    
+.specialSelect {
+    font-family: 'serif';
+    height: 50px;
+    font-size:30px; 
+    position:relative;
+    right: 150px;
+    }

@@ -93,15 +93,6 @@ class MapsController < ApplicationController
   end
   protected
 
-#def authenticate
-#  authenticate_or_request_with_http_basic do |username, password|
-#    username == "root" && password == "cochin"
-#  end
-#end
-
-
-
-
  def authenticate
    authenticate_or_request_with_http_basic('Administration') do |username, password|
      md5_of_password = Digest::MD5.hexdigest(password)

@@ -8,19 +8,19 @@
         - @map.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.input :name
+    = f.input :name,:label=>'Name',:input_html => { :class => 'special' },:required => true
     %br/
   .field
-    = f.input :catagory
+    = f.input :catagory, :label=> 'Catagory',:required => true,:collection =>['beach','general','boat','temple','art','forest'] ,:prompt=>'historic',:input_html => { :class => 'specialSelect' },:required => true
     %br/
   .field
-    = f.input :lng, :label => 'Latitude'
+    = f.input :lng, :label => 'Latitude',:placeholder => '13.21682',:input_html => { :class => 'special' },:required => true
     %br/
   .field
-    = f.input :lat,:label=> 'Longitude'
+    = f.input :lat,:label=> 'Longitude',:placeholder => '75.99149',:input_html => { :class => 'special' },:required => true
     %br/
   .field
-    = f.input :desc,:label=>'Description'
+    = f.input :desc,:label=>'Description',:input_html => { :class => 'special' }
     %br/
   .actions
     = f.button :submit
