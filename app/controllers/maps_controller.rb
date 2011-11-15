@@ -20,7 +20,7 @@ class MapsController < ApplicationController
   def show
     #TODO
     @map = Map.find(params[:id])
-    @map2=Map.all
+    
 
     respond_to do |format|
       format.html # show.html.erb
@@ -90,6 +90,13 @@ class MapsController < ApplicationController
       format.html { redirect_to(maps_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def showall
+   #@map=Map.all
+   @maps = Map.order(:name).page params[:page]
+
+    
   end
   protected
 

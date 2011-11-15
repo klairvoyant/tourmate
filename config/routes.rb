@@ -2,7 +2,10 @@ TourMate::Application.routes.draw do
   resources :locations
 
   resources :maps do
-    #get :welcome, :on => :collection 
+   collection do
+    get 'showall'
+  end
+    
   end
 
   # The priority is based upon order of creation:

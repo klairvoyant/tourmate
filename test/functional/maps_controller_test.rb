@@ -32,6 +32,9 @@ class MapsControllerTest < ActionController::TestCase
    get :new
    assert_response :success
    assert_template "new"
+   assert_select "div.makeBig h2", :text=>"Enter Place Data"
+   assert_select "div.field", :count=>5
+   assert_select "div.actions", :count=>1
   end
 
 end

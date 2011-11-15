@@ -1,0 +1,20 @@
+#inital_map_head.span-24.last
+ Tour Mate
+ #inital_map_head_sub Help you to find your tour destinations
+.column.span-4 &nbsp;
+.column.span-16.elevate.makeBig2
+ .column.span-1 &nbsp;
+ .column.span-15.last
+  -for m in @maps 
+   %p
+    =m.name
+    &nbsp;
+    =link_to 'Show', m,:method=>:post
+    &nbsp;
+    =link_to 'Destroy', m,:method=>:delete
+  =paginate @maps, :remote => true
+.column.span-4.last &nbsp;
+.column.span-6 &nbsp;
+.column.span-12#backButton
+ =link_to 'Back', maps_path
+.column.span-6.last &nbsp;

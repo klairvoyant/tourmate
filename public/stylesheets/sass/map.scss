@@ -135,7 +135,11 @@ body {
  font-size: 200%;
  text-align: center;
 background-color: #a5bfdd;
- } 
+ }
+ .makeBig2 {
+  font-size: 200%;
+  background-color: #a5bfdd;   
+   }         
 .simple_form {
   label {
     float: left;
@@ -164,3 +168,7 @@ background-color: #a5bfdd;
     position:relative;
     right: 150px;
     }
+ #backButton {
+     font-size: 300%;
+     text-align:center; 
+}   

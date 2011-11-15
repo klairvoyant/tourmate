@@ -29,11 +29,3 @@
 <%= link_to 'Back', maps_path %>
 
 
-<% for m in @map2 %>
-<p>
-<%= m.id %> &nbsp; <%= m.name %> &nbsp; <%=m.catagory%>
-<%= link_to 'Destroy', m,:method=>:delete %>
-</p>
-
-
-<% end %>
