@@ -1,7 +1,7 @@
 require 'digest'
 class MapsController < ApplicationController
-  layout 'application', :except => :index
-  before_filter   :authenticate, :except => [:index]
+  layout 'application', :except => [:index, :mobileview ]
+  before_filter   :authenticate, :except => [:index, :mobileview]
   # GET /maps
   # GET /maps.xml
   
@@ -97,6 +97,10 @@ class MapsController < ApplicationController
    @maps = Map.order(:name).page params[:page]
 
     
+  end
+
+  def mobileview
+    @maps = Map.all
   end
   protected
 

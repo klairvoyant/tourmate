@@ -92,7 +92,7 @@ function initialize() {
         
         deleteMarker();
   	
-                document.getElementById("for_hide").style.display="block";
+        document.getElementById("for_hide").style.display="block";
                 
 		placeMarker(event.latLng);
 	

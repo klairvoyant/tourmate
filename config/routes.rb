@@ -4,8 +4,10 @@ TourMate::Application.routes.draw do
   resources :maps do
    collection do
     get 'showall'
-  end
-    
+    get 'mobileview'
+
+   end
+
   end
 
   # The priority is based upon order of creation:

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TourMate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+  <link rel="stylesheet" href="/stylesheets/mobilemap.css" />
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+  <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="/javascripts/mobileview.js"> </script>
+
+
+</head>
+
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="first">
+
+  <div data-role="header">
+    <h1 id="startLocation">Select your starting point</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+    <div id="map_canvas">
+
+    </div>
+
+    <div id="details"> <a href="#third">More Details</a> </div>
+    <div id="total">
+
+    </div>
+
+  </div><!-- /content -->
+
+  <div data-role="footer">
+
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+
+<!-- Start of second page -->
+<div data-role="page" id="second">
+
+  <div data-role="header">
+    <h1>Select your Destination</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+
+    <ul data-role="listview" data-theme="g">
+      <li data-role="list-divider"> Historic Places</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='historic'") %>
+      <%  @mapdata.each do |c| %>
+      <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+       <br/>
+       <% end %>
+       <li data-role="list-divider"> Beaches</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='beach'") %>
+      <%  @mapdata.each do |c| %>
+          <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+          <br/>
+      <% end %>
+
+      <li data-role="list-divider"> General</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='general'") %>
+      <%  @mapdata.each do |c| %>
+          <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+          <br/>
+      <% end %>
+      <li data-role="list-divider"> Boat Ride</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='boat'") %>
+      <%  @mapdata.each do |c| %>
+          <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+          <br/>
+      <% end %>
+      <li data-role="list-divider"> Temples, Churches</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='temple'") %>
+      <%  @mapdata.each do |c| %>
+          <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+          <br/>
+      <% end %>
+      <li data-role="list-divider"> Art, Museum</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='art'") %>
+      <%  @mapdata.each do |c| %>
+          <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+          <br/>
+      <% end %>
+      <li data-role="list-divider"> Forest, Dam</li>
+      <%@mapdata= Map.find(:all,:conditions=>"catagory='forest'") %>
+      <%  @mapdata.each do |c| %>
+          <%=link_to "#{c.name}",'#',:class => 'my-link',:"data-lng"=> "#{c.lat}",:"data-lat"=> "#{c.lng}"%>
+          <br/>
+      <% end %>
+
+    </ul>
+
+  </div><!-- /content -->
+
+  <div data-role="footer">
+
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of Third page -->
+<div data-role="page" id="third">
+
+  <div data-role="header">
+    <h1>Path Description</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+    <div id="directionsPanel">
+
+    </div>
+
+    <a href="#first"> Back</a>
+  </div><!-- /content -->
+
+  <div data-role="footer">
+
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+
+</html>
