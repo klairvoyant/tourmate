@@ -106,7 +106,17 @@ $(
 
         });
 
+         $('#details').click(function(){
+                 $.mobile.changePage( "#third", { transition: "slideup"} );
 
+             }
+         );
+
+        $('#backFirstPage').click(function(){
+                $.mobile.changePage( "#first", { transition: "slideup"} );
+
+            }
+        );
 
     })
 
