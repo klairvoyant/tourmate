@@ -106,7 +106,7 @@ $(
 
         });
 
-         $('#details').click(function(){
+       /*  $('#details').click(function(){
                  $.mobile.changePage( "#third", { transition: "slideup"} );
 
              }
@@ -116,9 +116,9 @@ $(
                 $.mobile.changePage( "#first", { transition: "slideup"} );
 
             }
-        );
+        );*/
 
-    })
+    });
 
 /**
  * Created at www.klairvoyant.in
