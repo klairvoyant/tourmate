@@ -92,9 +92,6 @@ $(
         google.maps.event.addListener(map, 'click', function(event) {
 
             deleteMarker();
-
-          //  document.getElementById("for_hide").style.display="block";
-
             placeMarker(event.latLng);
 
         });
